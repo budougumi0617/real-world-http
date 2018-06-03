@@ -1,6 +1,7 @@
 package main
 
 import (
+	"crypto/tls"
 	"fmt"
 	"log"
 	"net/http"
@@ -18,8 +19,15 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	server := &http.Server{
+		Addr: ":18443",
+		TLSConfig: &tls.Config{
+			ClientAuth: tls.RequireAndVerifyClientCert,
+			MinVersion: tls.VersionTLS12,
+		},
+	}
 	http.HandleFunc("/", handler)
 	log.Println("start http listening :18443")
-	err := http.ListenAndServeTLS(":18443", "../cert/server.crt", "../cert/server.key", nil)
+	err := server.ListenAndServeTLS("../cert/server.crt", "../cert/server.key")
 	log.Println(err)
 }
