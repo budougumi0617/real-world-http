@@ -30,8 +30,7 @@ challengePassword_max		= 20
 
 [CA]
 basicConstraints=critical,CA:TRUE,pathlen:0
-keyUsage=digitalSignature,dataEncipherment
-extendedKeyUsage=serverAuth
+keyUsage=digitalSignature,cRLSign,keyCertSign
 
 [Server]
 basicConstraints=CA:FALSE
@@ -41,5 +40,5 @@ extendedKeyUsage=serverAuth
 [Client]
 basicConstraints=CA:FALSE
 keyUsage=digitalSignature,dataEncipherment
-extendedKeyUsage=serverAuth
+extendedKeyUsage=clientAuth
 
