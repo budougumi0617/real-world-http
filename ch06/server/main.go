@@ -1,9 +1,11 @@
 package main
 
-import "fmt"
-import "log"
-import "net/http"
-import "net/http/httputil"
+import (
+	"fmt"
+	"log"
+	"net/http"
+	"net/http/httputil"
+)
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	dump, err := httputil.DumpRequest(r, true)
