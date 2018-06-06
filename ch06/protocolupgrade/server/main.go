@@ -59,9 +59,10 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	var httpServer http.Server
 	http.HandleFunc("/upgrade", handlerUpgrade)
 	http.HandleFunc("/", handler)
-	log.Println("start http listening :18443")
-	err := http.ListenAndServeTLS(":18443", "../cert/server.crt", "../cert/server.key", nil)
-	log.Println(err)
+	log.Println("start http listening :18888")
+	httpServer.Addr = ":18888"
+	log.Println(httpServer.ListenAndServe())
 }
