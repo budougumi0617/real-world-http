@@ -1,4 +1,4 @@
-# Clinet output
+# Clinet output logs
 ```bash
 $ gor main.go
 2018/06/06 23:40:58 Status: 101 Switching Protocols
@@ -25,7 +25,7 @@ $ gor main.go
 -> 1
 ```
 
-# Server output
+# Server output logs
 ```bash
 $ gor main.go
 2018/06/06 23:40:46 start http listening :18888
