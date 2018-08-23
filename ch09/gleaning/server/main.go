@@ -45,7 +45,7 @@ func handlerPrimeSSE(w http.ResponseWriter, r *http.Request) {
 			// Calculat Prime number
 			if big.NewInt(num).ProbablyPrime(20) {
 				fmt.Println(num)
-				fmt.Fprintf(w, "data: {\"id\": %dm \"number\": %d}\n\n", id, num)
+				fmt.Fprintf(w, "data: {\"id\": %d, \"number\": %d}\n\n", id, num)
 				flusher.Flush()
 				time.Sleep(time.Second)
 				break
