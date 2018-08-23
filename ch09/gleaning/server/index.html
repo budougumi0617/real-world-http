@@ -12,6 +12,7 @@
     <script>
       const component = {
         oninit: function(vnode) {
+          // streamはmのメンバーメソッド
           this.primes = m.stream([]);
           const sse = new EventSource('/prime');
           sse.onmessage = (event) => {
